@@ -39,5 +39,5 @@ out/
 .vscode/
 
 ### Settings
-.yml
+*.yml
 *.yaml
