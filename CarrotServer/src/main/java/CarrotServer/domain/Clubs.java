@@ -10,7 +10,7 @@ public class Clubs {
     private ClubCategory clubCategory;
     private String clubName;
     private String clubContent;
-    private String participants_img;
+    private String participantsImg;
     private String clubImg;
     private String clubBackgroundImg;
     private String town;
