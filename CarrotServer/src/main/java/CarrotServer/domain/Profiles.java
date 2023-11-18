@@ -3,7 +3,7 @@ package CarrotServer.domain;
 import jakarta.persistence.*;
 
 @Entity
-public class Profile {
+public class Profiles {
     @Id @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long profileId;
     @ManyToOne
