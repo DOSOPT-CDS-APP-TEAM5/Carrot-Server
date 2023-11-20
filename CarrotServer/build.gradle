@@ -36,6 +36,8 @@ dependencies {
 
 	// test
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation 'org.hibernate.validator:hibernate-validator'
 }
 
 tasks.named('bootBuildImage') {

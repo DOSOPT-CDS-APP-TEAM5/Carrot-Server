@@ -1,8 +1,12 @@
 package CarrotServer.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+
+import java.util.List;
 
 @Entity
+@Getter
 public class Clubs {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clubId;
@@ -15,4 +19,6 @@ public class Clubs {
     private String clubBackgroundImg;
     private String town;
     private int participantCount;
+    @OneToMany
+    private List<Albums> albums;
 }
