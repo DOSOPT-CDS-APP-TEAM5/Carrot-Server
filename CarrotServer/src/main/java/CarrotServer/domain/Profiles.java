@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 public class Profiles {
     @Id @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long profileId;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="clubId")
     private Clubs club;
     private String nickname;
