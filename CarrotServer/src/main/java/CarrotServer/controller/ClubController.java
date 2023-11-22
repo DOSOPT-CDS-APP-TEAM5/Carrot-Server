@@ -28,8 +28,8 @@ public class ClubController {
 
     // 모임 프로필 생성
     @PostMapping(value = "/profile")
-    public ResponseEntity<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileCreateRequest request){
+    public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileCreateRequest request){
         URI location = URI.create(profileService.create(request, clubId));
-        return ResponseEntity.created(location).build();
+        return ApiResponse.success(Success.CREATE_PROFILE_SUCCESS);
     }
 }
