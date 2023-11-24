@@ -1,8 +1,10 @@
 package CarrotServer.common.enums;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Getter
 public enum ClubCategory {
     WORKOUT("운동"),
     FRIEND("동네친구"),
