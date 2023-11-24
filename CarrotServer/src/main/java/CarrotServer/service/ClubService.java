@@ -2,7 +2,7 @@ package CarrotServer.service;
 
 import CarrotServer.common.enums.ClubCategory;
 import CarrotServer.controller.response.ClubGetResponse;
-import CarrotServer.controller.response.ClubListResponseDTO;
+import CarrotServer.controller.response.ClubResponseDTO;
 import CarrotServer.domain.Club;
 import CarrotServer.mapper.ClubMapper;
 import CarrotServer.repository.ClubJpaRepository;
@@ -22,12 +22,12 @@ public class ClubService {
         return ClubGetResponse.of(clubJpaRepository.findByIdOrThrow(id));
     }
 
-    public List<ClubListResponseDTO> getClubList() {
+    public List<ClubResponseDTO> getClubList() {
         List<Club> clubList = clubJpaRepository.findAll();
         return ClubMapper.INSTANCE.toClubListResponseDTOList(clubList);
     }
 
-    public List<ClubListResponseDTO> getClubListFilteredByClubCategory(ClubCategory clubCategory) {
+    public List<ClubResponseDTO> getClubListFilteredByClubCategory(ClubCategory clubCategory) {
         List<Club> clubList = clubJpaRepository.findAllByClubCategory(clubCategory);
         return ClubMapper.INSTANCE.toClubListResponseDTOList(clubList);
     }

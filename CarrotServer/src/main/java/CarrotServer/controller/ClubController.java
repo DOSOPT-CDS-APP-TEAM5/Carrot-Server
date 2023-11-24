@@ -1,11 +1,10 @@
 package CarrotServer.controller;
 
 import CarrotServer.common.enums.ClubCategory;
-import CarrotServer.common.enums.LifeCategory;
 import CarrotServer.common.response.ApiResponse;
 import CarrotServer.controller.request.ProfileCreateRequest;
 import CarrotServer.controller.response.ClubGetResponse;
-import CarrotServer.controller.response.ClubListResponseDTO;
+import CarrotServer.controller.response.ClubResponseDTO;
 import CarrotServer.exception.Error;
 import CarrotServer.exception.Success;
 import CarrotServer.service.ClubService;
@@ -42,7 +41,7 @@ public class ClubController {
 
     @Operation(summary = "우리동네 모임 리스트 조회", description = "우리동네 모임 리스트를 조회합니다.")
     @GetMapping("")
-    public ApiResponse<List<ClubListResponseDTO>> getClubList(@RequestParam(name = "category", required = false) String category){
+    public ApiResponse<List<ClubResponseDTO>> getClubList(@RequestParam(name = "category", required = false) String category){
         if(category == null){
             return ApiResponse.success(Success.GET_TOWN_CLUBS_SUCCESS,clubService.getClubList());
         }
