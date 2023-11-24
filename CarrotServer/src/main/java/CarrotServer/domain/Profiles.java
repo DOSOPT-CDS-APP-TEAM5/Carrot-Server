@@ -14,12 +14,12 @@ public class Profiles {
     private Long profileId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="clubId")
-    private Clubs club;
+    private Club club;
     private String nickname;
     private String information;
 
     @Builder
-    public Profiles(Clubs club, String nickname, String information) {
+    public Profiles(Club club, String nickname, String information) {
         this.club = club;
         this.nickname = nickname;
         this.information = information;

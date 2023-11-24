@@ -11,6 +11,6 @@ public class Album {
     private Long albumId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "clubId")
-    private Clubs club;
+    private Club club;
     private String albumImg;
 }

@@ -1,7 +1,7 @@
 package CarrotServer.controller.response;
 
 import CarrotServer.common.enums.ClubCategory;
-import CarrotServer.domain.Clubs;
+import CarrotServer.domain.Club;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -15,15 +15,15 @@ public record ClubGetResponse(
         String clubContent,
         List<AlbumGetResposne> albums
 ) {
-    public static ClubGetResponse of(Clubs clubs) {
+    public static ClubGetResponse of(Club club) {
         return new ClubGetResponse(
-                clubs.getClubName(),
-                clubs.getClubImg(),
-                clubs.getClubBackgroundImg(),
-                clubs.getClubCategory(),
-                clubs.getParticipantCount(),
-                clubs.getClubContent(),
-                clubs.getAlbums()
+                club.getClubName(),
+                club.getClubImg(),
+                club.getClubBackgroundImg(),
+                club.getClubCategory(),
+                club.getParticipantCount(),
+                club.getClubContent(),
+                club.getAlbums()
                         .stream()
                         .map(AlbumGetResposne::of) // AlbumResponse.of 메서드를 활용하여 Albums를 AlbumResponse로 변환
                         .collect(Collectors.toList())

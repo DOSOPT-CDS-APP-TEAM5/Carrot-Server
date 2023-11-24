@@ -8,7 +8,8 @@ import java.util.List;
 
 @Entity
 @Getter
-public class Clubs {
+@Table(name = "clubs")
+public class Club {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clubId;
     @Enumerated(value = EnumType.STRING)

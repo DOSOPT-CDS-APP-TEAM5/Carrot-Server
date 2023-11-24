@@ -1,7 +1,7 @@
 package CarrotServer.service;
 
 import CarrotServer.controller.request.ProfileCreateRequest;
-import CarrotServer.domain.Clubs;
+import CarrotServer.domain.Club;
 import CarrotServer.domain.Profiles;
 import CarrotServer.repository.ClubJpaRepository;
 import CarrotServer.repository.ProfileJpaRepository;
@@ -19,9 +19,9 @@ public class ProfileService {
 
     @Transactional
     public String create(ProfileCreateRequest request, Long clubId) {
-        Clubs clubs = clubJpaRepository.findByIdOrThrow(clubId);
+        Club club = clubJpaRepository.findByIdOrThrow(clubId);
         Profiles profiles = profileJpaRepository.save(Profiles.builder()
-                .club(clubs)
+                .club(club)
                 .nickname(request.nickname())
                 .information(request.information())
                 .build());
