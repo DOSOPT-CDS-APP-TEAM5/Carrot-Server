@@ -13,4 +13,13 @@ public enum ClubCategory {
     PET("반려동물");
 
     private final String name;
+
+    public static ClubCategory findByName(String name){
+        for(ClubCategory clubCategory : ClubCategory.values()){
+            if(clubCategory.getName().equals(name)){
+                return clubCategory;
+            }
+        }
+        return null;
+    }
 }
