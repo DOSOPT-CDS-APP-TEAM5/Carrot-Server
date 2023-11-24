@@ -15,7 +15,6 @@ import java.util.List;
 public class LifeService {
     private final LifeJpaRepository lifeJpaRepository;
 
-    //TODO LifeCategory가 없는 경우 -> 전체 리스트 반환을 어떻게 구별할지 (controller 단의 문제인가?
     public List<LifeListResponseDTO> getLifeListFilteredByLifeCategory(LifeCategory lifeCategory){
         List<Lives> lifeList = lifeJpaRepository.findAllByLifeCategory(lifeCategory);
         return LifeMapper.INSTANCE.toLifeListResponseDTOList(lifeList);
