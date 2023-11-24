@@ -9,9 +9,10 @@ public enum Success {
 
     // 200 OK
     GET_HEALTH_CHECK_SUCCESS(HttpStatus.OK, "서버 상태 체크에 성공했습니다"),
-    GET_CLUB_SUCCESS(HttpStatus.OK, "우리동네 모임 상세 조회 성공");
+    GET_CLUB_SUCCESS(HttpStatus.OK, "우리동네 모임 상세 조회 성공"),
 
     // 201 craeted
+    CREATE_PROFILE_SUCCESS(HttpStatus.CREATED, "모임 프로필 생성 성공");
 
 
     private final HttpStatus httpStatus;
