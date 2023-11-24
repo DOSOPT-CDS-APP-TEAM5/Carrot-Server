@@ -21,5 +21,5 @@ public class Clubs {
     private String town;
     private int participantCount;
     @OneToMany
-    private List<Albums> albums;
+    private List<Album> albums;
 }

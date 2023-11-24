@@ -1,13 +1,13 @@
 package CarrotServer.controller.response;
 
-import CarrotServer.domain.Albums;
+import CarrotServer.domain.Album;
 
 public record AlbumGetResposne(
         String albumImg
 ) {
-    public static AlbumGetResposne of(Albums albums){
+    public static AlbumGetResposne of(Album album){
         return new AlbumGetResposne(
-                albums.getAlbumImg()
+                album.getAlbumImg()
         );
     }
 }

@@ -5,7 +5,8 @@ import lombok.Getter;
 
 @Entity
 @Getter
-public class Albums {
+@Table(name = "albums")
+public class Album {
     @Id @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long albumId;
     @ManyToOne(fetch = FetchType.LAZY)
