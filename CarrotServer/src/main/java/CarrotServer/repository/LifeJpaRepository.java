@@ -1,6 +1,6 @@
 package CarrotServer.repository;
 
-import CarrotServer.domain.LifeCategory;
+import CarrotServer.common.enums.LifeCategory;
 import CarrotServer.domain.Lives;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,7 +1,7 @@
 package CarrotServer.service;
 
 import CarrotServer.controller.response.LifeListResponseDTO;
-import CarrotServer.domain.LifeCategory;
+import CarrotServer.common.enums.LifeCategory;
 import CarrotServer.domain.Lives;
 import CarrotServer.mapper.LifeMapper;
 import CarrotServer.repository.LifeJpaRepository;
