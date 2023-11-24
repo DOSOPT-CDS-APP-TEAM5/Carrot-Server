@@ -1,16 +1,20 @@
 package CarrotServer.controller;
 
+import CarrotServer.common.enums.ClubCategory;
+import CarrotServer.common.enums.LifeCategory;
 import CarrotServer.common.response.ApiResponse;
 import CarrotServer.controller.request.ProfileCreateRequest;
 import CarrotServer.controller.response.ClubGetResponse;
+import CarrotServer.controller.response.ClubListResponseDTO;
+import CarrotServer.exception.Error;
 import CarrotServer.exception.Success;
 import CarrotServer.service.ClubService;
 import CarrotServer.service.ProfileService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/clubs")
@@ -31,5 +35,17 @@ public class ClubController {
     public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileCreateRequest request){
         URI location = URI.create(profileService.create(request, clubId));
         return ApiResponse.success(Success.CREATE_PROFILE_SUCCESS);
+    }
+
+    @GetMapping("")
+    public ApiResponse<List<ClubListResponseDTO>> getClubList(@RequestParam(name = "category", required = false) String category){
+        if(category == null){
+            return ApiResponse.success(Success.GET_TOWN_CLUBS_SUCCESS,clubService.getClubList());
+        }
+        ClubCategory clubCategory = ClubCategory.findByName(category);
+        if(clubCategory == null){
+            return ApiResponse.error(Error.NOT_FOUND_CATEGORY);
+        }
+        return ApiResponse.success(Success.GET_FILTERED_TOWN_CLUBS_SUCCESS,clubService.getClubListFilteredByClubCategory(clubCategory));
     }
 }
