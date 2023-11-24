@@ -1,4 +1,4 @@
-package CarrotServer.domain;
+package CarrotServer.common.enums;
 
 import lombok.RequiredArgsConstructor;
 

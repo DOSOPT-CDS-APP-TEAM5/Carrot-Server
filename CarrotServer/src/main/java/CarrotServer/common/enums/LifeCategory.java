@@ -1,6 +1,5 @@
-package CarrotServer.domain;
+package CarrotServer.common.enums;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
