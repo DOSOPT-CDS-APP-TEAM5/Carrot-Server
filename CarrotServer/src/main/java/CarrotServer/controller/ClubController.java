@@ -10,6 +10,8 @@ import CarrotServer.exception.Error;
 import CarrotServer.exception.Success;
 import CarrotServer.service.ClubService;
 import CarrotServer.service.ProfileService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/clubs")
 @RequiredArgsConstructor
+@Tag(name = "club", description = "우리동네 모임 관련 API")
 public class ClubController {
     private static final String CUSTOM_CLUB_ID = "X-Club-Id";
     private final ClubService clubService;
@@ -37,6 +40,7 @@ public class ClubController {
         return ApiResponse.success(Success.CREATE_PROFILE_SUCCESS);
     }
 
+    @Operation(summary = "우리동네 모임 리스트 조회", description = "우리동네 모임 리스트를 조회합니다.")
     @GetMapping("")
     public ApiResponse<List<ClubListResponseDTO>> getClubList(@RequestParam(name = "category", required = false) String category){
         if(category == null){
