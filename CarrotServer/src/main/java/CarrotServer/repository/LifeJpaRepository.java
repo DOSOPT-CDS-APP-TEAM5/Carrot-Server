@@ -1,12 +1,12 @@
 package CarrotServer.repository;
 
 import CarrotServer.common.enums.LifeCategory;
-import CarrotServer.domain.Lives;
+import CarrotServer.domain.Life;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface LifeJpaRepository extends JpaRepository<Lives, Long>{
-    List<Lives> findAllByLifeCategory(LifeCategory lifeCategory);
-    List<Lives> findAll();
+public interface LifeJpaRepository extends JpaRepository<Life, Long>{
+    List<Life> findAllByLifeCategory(LifeCategory lifeCategory);
+    List<Life> findAll();
 }

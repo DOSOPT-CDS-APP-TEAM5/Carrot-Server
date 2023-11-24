@@ -1,7 +1,7 @@
 package CarrotServer.mapper;
 
 import CarrotServer.controller.response.ClubListResponseDTO;
-import CarrotServer.domain.Clubs;
+import CarrotServer.domain.Club;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
@@ -14,8 +14,8 @@ public interface ClubMapper {
     ClubMapper INSTANCE = Mappers.getMapper(ClubMapper.class);
 
     @Mapping(target = "clubCategoryContent", source = "clubCategory.name")
-    ClubListResponseDTO toClubListResponseDTO(Clubs club);
+    ClubListResponseDTO toClubListResponseDTO(Club club);
 
-    List<ClubListResponseDTO> toClubListResponseDTOList(List<Clubs> clubList);
+    List<ClubListResponseDTO> toClubListResponseDTOList(List<Club> clubList);
 
 }

@@ -1,7 +1,7 @@
 package CarrotServer.mapper;
 
 import CarrotServer.controller.response.LifeListResponseDTO;
-import CarrotServer.domain.Lives;
+import CarrotServer.domain.Life;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.ReportingPolicy;
@@ -16,7 +16,7 @@ public interface LifeMapper {
 
     @Mapping(target = "lifeCategoryContent", source = "lifeCategory.name")
     @Mapping(target = "contentInformation", expression = "java(buildContentInformation(life.getTown(), life.getCreatedAt(), life.getViewCount()))")
-    LifeListResponseDTO toLifeListResponseDTO(Lives life);
+    LifeListResponseDTO toLifeListResponseDTO(Life life);
 
     default String buildContentInformation(String town, LocalDateTime createdAt, int viewCount) {
         String timeDiff = calculateTimeDifference(createdAt);
@@ -44,5 +44,5 @@ public interface LifeMapper {
         }
     }
 
-    List<LifeListResponseDTO> toLifeListResponseDTOList(List<Lives> lifeList);
+    List<LifeListResponseDTO> toLifeListResponseDTOList(List<Life> lifeList);
 }
