@@ -1,7 +1,7 @@
 package CarrotServer.controller;
 
 import CarrotServer.common.response.ApiResponse;
-import CarrotServer.controller.response.LifeListResponseDTO;
+import CarrotServer.controller.response.LifeResponseDTO;
 import CarrotServer.common.enums.LifeCategory;
 import CarrotServer.exception.Error;
 import CarrotServer.exception.Success;
@@ -25,7 +25,7 @@ public class LifeController {
 
     @Operation(summary = "우리동네 생활 정보 리스트 조회", description = "우리동네 생활 정보 리스트를 조회합니다.")
     @GetMapping("")
-    public ApiResponse<List<LifeListResponseDTO>> getLifeList(@RequestParam(name = "category", required = false) String category){
+    public ApiResponse<List<LifeResponseDTO>> getLifeList(@RequestParam(name = "category", required = false) String category){
         if(category == null){
             return ApiResponse.success(Success.GET_TOWN_LIVES_SUCCESS,lifeService.getLifeList());
         }
