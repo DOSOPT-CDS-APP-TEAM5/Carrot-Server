@@ -1,7 +1,6 @@
 package CarrotServer.controller.response;
 
-import CarrotServer.domain.Albums;
-import CarrotServer.domain.ClubCategory;
+import CarrotServer.common.enums.ClubCategory;
 import CarrotServer.domain.Clubs;
 
 import java.util.List;

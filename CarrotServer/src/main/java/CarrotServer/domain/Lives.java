@@ -1,5 +1,6 @@
 package CarrotServer.domain;
 
+import CarrotServer.common.enums.LifeCategory;
 import jakarta.persistence.*;
 import lombok.Getter;
 

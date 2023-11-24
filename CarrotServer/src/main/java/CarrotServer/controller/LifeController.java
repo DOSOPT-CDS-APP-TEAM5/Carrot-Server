@@ -2,7 +2,7 @@ package CarrotServer.controller;
 
 import CarrotServer.common.response.ApiResponse;
 import CarrotServer.controller.response.LifeListResponseDTO;
-import CarrotServer.domain.LifeCategory;
+import CarrotServer.common.enums.LifeCategory;
 import CarrotServer.exception.Error;
 import CarrotServer.exception.Success;
 import CarrotServer.service.LifeService;
