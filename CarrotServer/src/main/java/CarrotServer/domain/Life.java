@@ -8,7 +8,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Getter
-public class Lives {
+@Table(name = "lives")
+public class Life {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long lifeId;
     @Enumerated(value = EnumType.STRING)
