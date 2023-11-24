@@ -14,4 +14,13 @@ public enum LifeCategory {
     HOBBY("취미생활");
 
     private final String name;
+
+    public static LifeCategory findByName(String name){
+        for(LifeCategory lifeCategory : LifeCategory.values()){
+            if(lifeCategory.getName().equals(name)){
+                return lifeCategory;
+            }
+        }
+        return null;
+    }
 }
