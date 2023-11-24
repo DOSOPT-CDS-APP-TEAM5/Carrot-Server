@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
+@Table(name = "profiles")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Profiles {
+public class Profile {
     @Id @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long profileId;
     @ManyToOne(fetch = FetchType.LAZY)
@@ -19,7 +20,7 @@ public class Profiles {
     private String information;
 
     @Builder
-    public Profiles(Club club, String nickname, String information) {
+    public Profile(Club club, String nickname, String information) {
         this.club = club;
         this.nickname = nickname;
         this.information = information;
