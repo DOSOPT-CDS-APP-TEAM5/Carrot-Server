@@ -15,7 +15,7 @@ public enum Success {
     GET_TOWN_CLUBS_SUCCESS(HttpStatus.OK, "동네 모임 리스트 조회 성공"),
     GET_FILTERED_TOWN_CLUBS_SUCCESS(HttpStatus.OK, "카테고리 별 동네 모임 리스트 조회 성공"),
 
-    // 201 craeted
+    // 201 created
     CREATE_PROFILE_SUCCESS(HttpStatus.CREATED, "모임 프로필 생성 성공");
 
 
