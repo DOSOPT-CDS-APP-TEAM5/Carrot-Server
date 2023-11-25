@@ -22,17 +22,20 @@ import java.util.List;
 @RequiredArgsConstructor
 @Tag(name = "club", description = "우리동네 모임 관련 API")
 public class ClubController {
+
     private static final String CUSTOM_CLUB_ID = "X-Club-Id";
     private final ClubService clubService;
     private final ProfileService profileService;
 
     // 우리동네 모임 상세 조회 (단건 조회)
+    @Operation(summary = "우리동네 모임 상세 조회", description = "모임 상세 정보를 조회합니다.")
     @GetMapping(value = "/{clubId}")
     public ApiResponse<ClubGetResponse> getClubInformation(@PathVariable Long clubId){
         return ApiResponse.success(Success.GET_CLUB_SUCCESS, clubService.getClubById(clubId));
     }
 
     // 모임 프로필 생성
+    @Operation(summary = "모임 프로필 생성", description = "모임에서 사용할 프로필을 생성합니다.")
     @PostMapping(value = "/profile")
     public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileCreateRequest request){
         URI location = URI.create(profileService.create(request, clubId));
