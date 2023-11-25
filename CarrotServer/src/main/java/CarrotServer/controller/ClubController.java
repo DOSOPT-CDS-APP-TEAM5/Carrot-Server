@@ -2,7 +2,7 @@ package CarrotServer.controller;
 
 import CarrotServer.common.enums.ClubCategory;
 import CarrotServer.common.response.ApiResponse;
-import CarrotServer.controller.request.ProfileCreateRequest;
+import CarrotServer.controller.request.ProfileRequestDTO;
 import CarrotServer.controller.response.ClubDetailResponseDTO;
 import CarrotServer.controller.response.ClubResponseDTO;
 import CarrotServer.exception.Error;
@@ -37,7 +37,7 @@ public class ClubController {
     // 모임 프로필 생성
     @Operation(summary = "모임 프로필 생성", description = "모임에서 사용할 프로필을 생성합니다.")
     @PostMapping(value = "/profile")
-    public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileCreateRequest request){
+    public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileRequestDTO request){
         URI location = URI.create(profileService.create(request, clubId));
         return ApiResponse.success(Success.CREATE_PROFILE_SUCCESS);
     }

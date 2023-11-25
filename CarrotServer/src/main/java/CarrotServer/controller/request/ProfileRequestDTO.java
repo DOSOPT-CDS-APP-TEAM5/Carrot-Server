@@ -1,6 +1,6 @@
 package CarrotServer.controller.request;
 
-public record ProfileCreateRequest(
+public record ProfileRequestDTO(
         String nickname,
         String information
 ) {}
