@@ -3,7 +3,7 @@ package CarrotServer.controller;
 import CarrotServer.common.enums.ClubCategory;
 import CarrotServer.common.response.ApiResponse;
 import CarrotServer.controller.request.ProfileCreateRequest;
-import CarrotServer.controller.response.ClubGetResponse;
+import CarrotServer.controller.response.ClubDetailResponseDTO;
 import CarrotServer.controller.response.ClubResponseDTO;
 import CarrotServer.exception.Error;
 import CarrotServer.exception.Success;
@@ -30,7 +30,7 @@ public class ClubController {
     // 우리동네 모임 상세 조회 (단건 조회)
     @Operation(summary = "우리동네 모임 상세 조회", description = "모임 상세 정보를 조회합니다.")
     @GetMapping(value = "/{clubId}")
-    public ApiResponse<ClubGetResponse> getClubInformation(@PathVariable Long clubId){
+    public ApiResponse<ClubDetailResponseDTO> getClubInformation(@PathVariable Long clubId){
         return ApiResponse.success(Success.GET_CLUB_SUCCESS, clubService.getClubById(clubId));
     }
 

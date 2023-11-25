@@ -6,7 +6,7 @@ import CarrotServer.domain.Club;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public record ClubGetResponse(
+public record ClubDetailResponseDTO(
         String clubName,
         String clubImg,
         String clubBackgroundImg,
@@ -15,8 +15,8 @@ public record ClubGetResponse(
         String clubContent,
         List<AlbumGetResposne> albums
 ) {
-    public static ClubGetResponse of(Club club) {
-        return new ClubGetResponse(
+    public static ClubDetailResponseDTO of(Club club) {
+        return new ClubDetailResponseDTO(
                 club.getClubName(),
                 club.getClubImg(),
                 club.getClubBackgroundImg(),
