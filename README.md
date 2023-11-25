@@ -42,8 +42,11 @@
 <img width="911" alt="스크린샷 2023-11-21 오후 11 42 57" src="https://github.com/DOSOPT-CDS-APP-TEAM5/Carrot-Server/assets/81363864/24065d0c-510a-45e6-8d78-235ffea7c736">
 
 ## 🥕 API 명세서
-- notion: https://www.notion.so/dosopt/578680bef5f94913aad3342d63fd149f?v=440b6e5e4e6f428bbf0ebf7ef99ad7c6&pvs=4
-- swagger: 추가 예정
+- swagger: http://13.209.107.121:8080/swagger-ui/index.html
+
+## ⭐️ Server Architecture Structure
+![Group 2](https://github.com/DOSOPT-CDS-APP-TEAM5/Carrot-Server/assets/81363864/cb4dfb5f-78ec-4eee-bea3-bcb6e263e2be)
+
 
 
 ## 🌳 Branch
