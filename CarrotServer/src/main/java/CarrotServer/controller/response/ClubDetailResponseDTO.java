@@ -13,7 +13,7 @@ public record ClubDetailResponseDTO(
         ClubCategory clubCategory,
         Integer participantCount,
         String clubContent,
-        List<AlbumGetResposne> albums
+        List<AlbumResposneDTO> albums
 ) {
     public static ClubDetailResponseDTO of(Club club) {
         return new ClubDetailResponseDTO(
@@ -25,7 +25,7 @@ public record ClubDetailResponseDTO(
                 club.getClubContent(),
                 club.getAlbums()
                         .stream()
-                        .map(AlbumGetResposne::of) // AlbumResponse.of 메서드를 활용하여 Albums를 AlbumResponse로 변환
+                        .map(AlbumResposneDTO::of) // AlbumResponse.of 메서드를 활용하여 Albums를 AlbumResponse로 변환
                         .collect(Collectors.toList())
         );
     }
