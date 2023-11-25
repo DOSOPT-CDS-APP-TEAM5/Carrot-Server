@@ -1,6 +1,6 @@
 package CarrotServer.service;
 
-import CarrotServer.controller.response.LifeListResponseDTO;
+import CarrotServer.controller.response.LifeResponseDTO;
 import CarrotServer.common.enums.LifeCategory;
 import CarrotServer.domain.Life;
 import CarrotServer.mapper.LifeMapper;
@@ -15,12 +15,12 @@ import java.util.List;
 public class LifeService {
     private final LifeJpaRepository lifeJpaRepository;
 
-    public List<LifeListResponseDTO> getLifeListFilteredByLifeCategory(LifeCategory lifeCategory){
+    public List<LifeResponseDTO> getLifeListFilteredByLifeCategory(LifeCategory lifeCategory){
         List<Life> lifeList = lifeJpaRepository.findAllByLifeCategory(lifeCategory);
         return LifeMapper.INSTANCE.toLifeListResponseDTOList(lifeList);
     }
 
-    public List<LifeListResponseDTO> getLifeList(){
+    public List<LifeResponseDTO> getLifeList(){
         List<Life> lifeList = lifeJpaRepository.findAll();
         return LifeMapper.INSTANCE.toLifeListResponseDTOList(lifeList);
     }
