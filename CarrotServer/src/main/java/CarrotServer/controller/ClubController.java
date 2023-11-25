@@ -10,7 +10,6 @@ import CarrotServer.exception.Success;
 import CarrotServer.service.ClubService;
 import CarrotServer.service.ProfileService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -29,30 +28,18 @@ public class ClubController {
     private final ProfileService profileService;
 
     // 우리동네 모임 상세 조회 (단건 조회)
-    @Operation(summary = "우리동네 모임 상세 조회", description = "모임 상세 정보를 조회합니다.", tags = { "Club Controller" })
-    @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "OK"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "BAD REQUEST"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "NOT FOUND"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR")
-    })
+    @Operation(summary = "우리동네 모임 상세 조회", description = "모임 상세 정보를 조회합니다.")
     @GetMapping(value = "/{clubId}")
     public ApiResponse<ClubGetResponse> getClubInformation(@PathVariable Long clubId){
         return ApiResponse.success(Success.GET_CLUB_SUCCESS, clubService.getClubById(clubId));
     }
 
     // 모임 프로필 생성
-    @Operation(summary = "모임 프로필 생성", description = "모임에서 사용할 프로필을 생성합니다.", tags = { "Club Controller" })
-    @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "OK"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "BAD REQUEST"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "NOT FOUND"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR")
-    })
+    @Operation(summary = "모임 프로필 생성", description = "모임에서 사용할 프로필을 생성합니다.")
     @PostMapping(value = "/profile")
     public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileCreateRequest request){
         URI location = URI.create(profileService.create(request, clubId));
-        return ApiResponse.success(Succesgits.CREATE_PROFILE_SUCCESS);
+        return ApiResponse.success(Success.CREATE_PROFILE_SUCCESS);
     }
 
     @Operation(summary = "우리동네 모임 리스트 조회", description = "우리동네 모임 리스트를 조회합니다.")
