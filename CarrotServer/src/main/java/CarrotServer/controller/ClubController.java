@@ -2,8 +2,8 @@ package CarrotServer.controller;
 
 import CarrotServer.common.enums.ClubCategory;
 import CarrotServer.common.response.ApiResponse;
-import CarrotServer.controller.request.ProfileCreateRequest;
-import CarrotServer.controller.response.ClubGetResponse;
+import CarrotServer.controller.request.ProfileRequestDTO;
+import CarrotServer.controller.response.ClubDetailResponseDTO;
 import CarrotServer.controller.response.ClubResponseDTO;
 import CarrotServer.exception.Error;
 import CarrotServer.exception.Success;
@@ -30,14 +30,14 @@ public class ClubController {
     // 우리동네 모임 상세 조회 (단건 조회)
     @Operation(summary = "우리동네 모임 상세 조회", description = "모임 상세 정보를 조회합니다.")
     @GetMapping(value = "/{clubId}")
-    public ApiResponse<ClubGetResponse> getClubInformation(@PathVariable Long clubId){
+    public ApiResponse<ClubDetailResponseDTO> getClubInformation(@PathVariable Long clubId){
         return ApiResponse.success(Success.GET_CLUB_SUCCESS, clubService.getClubById(clubId));
     }
 
     // 모임 프로필 생성
     @Operation(summary = "모임 프로필 생성", description = "모임에서 사용할 프로필을 생성합니다.")
     @PostMapping(value = "/profile")
-    public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileCreateRequest request){
+    public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileRequestDTO request){
         URI location = URI.create(profileService.create(request, clubId));
         return ApiResponse.success(Success.CREATE_PROFILE_SUCCESS);
     }
