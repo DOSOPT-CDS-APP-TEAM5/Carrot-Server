@@ -1,18 +1,15 @@
 package CarrotServer.controller;
 
 import CarrotServer.common.enums.ClubCategory;
-import CarrotServer.common.enums.LifeCategory;
 import CarrotServer.common.response.ApiResponse;
 import CarrotServer.controller.request.ProfileCreateRequest;
 import CarrotServer.controller.response.ClubGetResponse;
-import CarrotServer.controller.response.ClubListResponseDTO;
+import CarrotServer.controller.response.ClubResponseDTO;
 import CarrotServer.exception.Error;
 import CarrotServer.exception.Success;
 import CarrotServer.service.ClubService;
 import CarrotServer.service.ProfileService;
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -24,6 +21,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/clubs")
 @RequiredArgsConstructor
+@Tag(name = "club", description = "우리동네 모임 관련 API")
 public class ClubController {
 
     private static final String CUSTOM_CLUB_ID = "X-Club-Id";
@@ -54,18 +52,12 @@ public class ClubController {
     @PostMapping(value = "/profile")
     public ApiResponse<Void> createProfile(@RequestHeader(CUSTOM_CLUB_ID) Long clubId, @RequestBody ProfileCreateRequest request){
         URI location = URI.create(profileService.create(request, clubId));
-        return ApiResponse.success(Success.CREATE_PROFILE_SUCCESS);
+        return ApiResponse.success(Succesgits.CREATE_PROFILE_SUCCESS);
     }
 
-    @Operation(summary = "우리동네 모임 카테고리 별 조회", description = "카테고리에 맞는 모임들을 조회합니다.", tags = { "Club Controller" })
-    @ApiResponses({
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "OK"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "400", description = "BAD REQUEST"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "NOT FOUND"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "INTERNAL SERVER ERROR")
-    })
+    @Operation(summary = "우리동네 모임 리스트 조회", description = "우리동네 모임 리스트를 조회합니다.")
     @GetMapping("")
-    public ApiResponse<List<ClubListResponseDTO>> getClubList(@RequestParam(name = "category", required = false) String category){
+    public ApiResponse<List<ClubResponseDTO>> getClubList(@RequestParam(name = "category", required = false) String category){
         if(category == null){
             return ApiResponse.success(Success.GET_TOWN_CLUBS_SUCCESS,clubService.getClubList());
         }
