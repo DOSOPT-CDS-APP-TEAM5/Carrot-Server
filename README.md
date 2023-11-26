@@ -18,12 +18,17 @@
 		|-- 📁 java
 			|-- 📁 CarrotServer
 				|-- 📁 common
+					|-- 📁 enums
+					|-- 📁 response
+					|-- 📁 swagger
 				|-- 📁 contoller
 					|-- 📁 request
 					|-- 📁 response
 				|-- 📁 domain
 				|-- 📁 exception
-						|-- 📁 model
+					|-- 📁 model
+				|-- 📁 mapper
+				|-- 📁 request
 				|-- 📁 repository
 				|-- 📁 service
 		|-- 📁 resources
