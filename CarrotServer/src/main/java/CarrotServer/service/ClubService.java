@@ -4,6 +4,8 @@ import CarrotServer.common.enums.ClubCategory;
 import CarrotServer.controller.response.ClubDetailResponseDTO;
 import CarrotServer.controller.response.ClubResponseDTO;
 import CarrotServer.domain.Club;
+import CarrotServer.exception.enums.Error;
+import CarrotServer.exception.model.CarrotException;
 import CarrotServer.mapper.ClubMapper;
 import CarrotServer.repository.ClubJpaRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +21,7 @@ public class ClubService {
     private final ClubJpaRepository clubJpaRepository;
 
     public ClubDetailResponseDTO getClubById(Long id) {
-        return ClubDetailResponseDTO.of(clubJpaRepository.findByIdOrThrow(id));
+        return ClubDetailResponseDTO.of(clubJpaRepository.findById(id).orElseThrow(() -> new CarrotException(Error.NOT_FOUND_CLUB, Error.NOT_FOUND_CLUB.getMessage())));
     }
 
     public List<ClubResponseDTO> getClubList() {

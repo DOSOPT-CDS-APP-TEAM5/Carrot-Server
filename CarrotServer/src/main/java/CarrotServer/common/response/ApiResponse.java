@@ -1,7 +1,7 @@
 package CarrotServer.common.response;
 
-import CarrotServer.exception.Error;
-import CarrotServer.exception.Success;
+import CarrotServer.exception.enums.Error;
+import CarrotServer.exception.enums.Success;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,5 +26,9 @@ public class ApiResponse<T> {
 
     public static ApiResponse error(Error error) {
         return new ApiResponse<>(error.getHttpStatus(), error.getMessage());
+    }
+
+    public static <T> ApiResponse<T> error(Error error, T data) {
+        return new ApiResponse<T>(error.getHttpStatus(), error.getMessage(), data);
     }
 }
