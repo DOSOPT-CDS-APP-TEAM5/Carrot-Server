@@ -1,7 +1,7 @@
 package CarrotServer.common.response;
 
-import CarrotServer.exception.Error;
-import CarrotServer.exception.Success;
+import CarrotServer.exception.enums.Error;
+import CarrotServer.exception.enums.Success;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

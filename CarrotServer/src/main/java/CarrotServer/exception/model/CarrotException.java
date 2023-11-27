@@ -1,6 +1,6 @@
 package CarrotServer.exception.model;
 
-import CarrotServer.exception.Error;
+import CarrotServer.exception.enums.Error;
 
 public class CarrotException extends RuntimeException {
     private final Error error;

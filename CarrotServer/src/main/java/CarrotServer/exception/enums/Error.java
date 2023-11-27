@@ -1,4 +1,4 @@
-package CarrotServer.exception;
+package CarrotServer.exception.enums;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
