@@ -47,7 +47,12 @@
 <img width="911" alt="스크린샷 2023-11-21 오후 11 42 57" src="https://github.com/DOSOPT-CDS-APP-TEAM5/Carrot-Server/assets/81363864/24065d0c-510a-45e6-8d78-235ffea7c736">
 
 ## 🥕 API 명세서
+- notion: 협업 노션 내 API 명세서 참고
 - swagger: http://13.209.107.121:8080/swagger-ui/index.html
+
+## 🌸 Server 협업 노션
+- notion: https://euna-study.notion.site/5-08bc0d901aca4df08c7babf7e4eea13e?pvs=4
+
 
 ## ⭐️ Server Architecture Structure
 ![Group 2](https://github.com/DOSOPT-CDS-APP-TEAM5/Carrot-Server/assets/81363864/cb4dfb5f-78ec-4eee-bea3-bcb6e263e2be)
